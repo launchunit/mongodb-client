@@ -1,0 +1,21 @@
+{
+  "name": "mongodb-client",
+  "version": "0.0.1",
+  "description": "Nodejs client for mongoDB",
+  "homepage": "https://github.com/launchunit/mongodb-client",
+  "author": "Karan Sakhuja <kevin.sakhuja@gmail.com> (http://kevify.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "dependencies": {
+    "extend": "^3.0.0",
+    "flat": "^1.6.0",
+    "joi": "^7.0.1",
+    "lodash": "^3.10.1",
+    "mongodb": "^2.0.51"
+  },
+  "devDependencies": {
+    "ava": "^0.7.0"
+  }
+}
