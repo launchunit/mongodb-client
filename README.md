@@ -51,3 +51,7 @@ mongoDB.connect({
 ```bash
 $ npm test
 ```
+
+#### To Do
+- [ ] Test joi validations
+- [ ] Test flat (nested) updates
