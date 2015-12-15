@@ -33,6 +33,7 @@ mongoDB.createModel({
  *           - Logger Object = { error, info, debug }
  *
  * @params {Object} opts.connection (Optional)
+ * @params {Object} opts.joi_errors (Optional)
  */
 mongoDB.connect({
   mongoUrl: 'mongodb://tester:tester@dbhost'

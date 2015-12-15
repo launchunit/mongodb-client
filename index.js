@@ -14,7 +14,6 @@ const MODELS = {};
  * @params {Array} opts.indexes (Optional)
  * @params {Object} opts.schema (Optional)
  *
- *
  * @public
  */
 exports.createModel = opts => {
@@ -42,6 +41,7 @@ exports.createModel = opts => {
  *           - Logger Object = { error, info, debug }
  *
  * @params {Object} opts.connection (Optional)
+ * @params {Object} opts.joi_errors (Optional)
  *
  * @return {Promise}
  * @public
@@ -75,6 +75,7 @@ exports.connect = opts => {
 
       require('./lib/models')({
         logger: opts.logger,
+        joi_errors: opts.joi_errors,
         models: MODELS,
         db: db
       });

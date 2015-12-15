@@ -24,6 +24,14 @@ test.before(t => {
     schema: {
       created: Joi.date().min('now').default(new Date),
       email: Joi.string().lowercase().trim().email(),
+    },
+    actions: {
+      abd: {
+        created: Joi.date().min('now').default(new Date)
+      },
+      xyz: {
+        email: Joi.string().lowercase().trim().email()
+      }
     }
   });
 });
