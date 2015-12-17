@@ -56,3 +56,4 @@ $ npm test
 #### To Do
 - [ ] Test joi validations
 - [ ] Test flat (nested) updates
+- [ ] Utils.deepDiff - Account for Removal of Item in Array
