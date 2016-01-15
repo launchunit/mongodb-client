@@ -56,19 +56,6 @@ exports.connect = opts => {
       return reject(new Error('mongoUrl is required.'));
 
 
-    // Assign a debug flag
-    if (opts.logger !== undefined &&
-        opts.logger !== false) {
-      opts.debug = true;
-    }
-
-    // Setup a Common Logger
-    opts.logger = typeof opts.logger === 'object' || {
-      error: console.error,
-      debug: console.log,
-      info: console.log
-    };
-
     require('./lib/connect')(opts, (err, db) => {
 
       if (err) return reject(err);
