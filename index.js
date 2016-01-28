@@ -2,10 +2,17 @@
 'use strict';
 
 /**
+ * Module dependencies.
+ * @private
+ */
+const path = require('path'),
+  RequireAll = require('require-all')
+
+
+/**
  * Constants
  * @private
  */
-
 const MODELS = {};
 
 
@@ -13,6 +20,7 @@ const MODELS = {};
  * @params {String} opts.name (Required)
  * @params {Array} opts.indexes (Optional)
  * @params {Object} opts.schema (Optional)
+ * @params {Object} opts.actions (Optional)
  *
  * @public
  */
@@ -36,8 +44,8 @@ exports.createModel = opts => {
 /**
  * @params {String} opts.mongoUrl (Required)
  *
- * @params {Boolean|Object} opts.logger (Default=console)
- *           - Can be a boolean or logger function
+ * @params {Boolean|Object} opts.logger
+ *           - Can be a Boolean (True = Default=console)
  *           - Logger Object = { error, info, debug }
  *
  * @params {Object} opts.connection (Optional)
@@ -60,7 +68,8 @@ exports.connect = opts => {
 
       if (err) return reject(err);
 
-      require('./lib/models')({
+      // Init Models
+      require('./lib/models').initModels({
         logger: opts.logger,
         joi_errors: opts.joi_errors,
         models: MODELS,
@@ -74,5 +83,25 @@ exports.connect = opts => {
       });
     });
 
+  });
+};
+
+
+/**
+ * Load Models from a Path
+ *
+ * @params {String} modelsPath (Required)
+ *
+ * @public
+ */
+exports.loadModels = modelsPath => {
+
+  return RequireAll({
+    dirname: path.resolve(modelsPath),
+    filter:  /(.+)\.js$/, // Only JS files
+    recursive: false,
+    resolve: function(m) {
+      return exports.createModel(m);
+    }
   });
 };

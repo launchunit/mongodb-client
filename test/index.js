@@ -6,7 +6,7 @@ const Joi = require('joi'),
 // Init Things
 var client, DB,
 opts = {
-  mongoUrl: process.env.MONGO_URL || ''
+  mongoUrl: process.env.MONGO_URL
 };
 
 
@@ -36,8 +36,12 @@ test.before(t => {
   });
 });
 
+test.serial('Load Models from a Path', t => {
+  client.loadModels(__dirname + '/models');
+  t.pass();
+});
 
-test('Connect to mongoDB (mongoUrl Not Passed)', t => {
+test.serial('Connect to mongoDB (mongoUrl Not Passed)', t => {
 
   return client.connect()
   .then(function(res) {
@@ -48,7 +52,7 @@ test('Connect to mongoDB (mongoUrl Not Passed)', t => {
   });
 });
 
-test('Connect to mongoDB (mongoUrl is Incorrect)', t => {
+test.serial('Connect to mongoDB (mongoUrl is Incorrect)', t => {
 
   return client.connect({
     mongoUrl: 'mongodb://sssss'
