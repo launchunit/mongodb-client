@@ -45,9 +45,9 @@ mongoDB.loadModels(__dirname + '/models');
 /**
  * @params {String} opts.mongoUrl (Required)
  *
- * @params {Boolean|Object} opts.logger
+ * @params {Boolean|Function} opts.logger
  *           - Can be a Boolean (True = Default=console)
- *           - Logger Object = { error, info, debug }
+ *           - Logger Function(msg, context)
  *
  * @params {Object} opts.connection (Optional)
  * @params {Object} opts.joi_errors (Optional)
