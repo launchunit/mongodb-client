@@ -50,7 +50,8 @@ mongoDB.loadModels(__dirname + '/models');
  *           - Logger Function(msg, context)
  *
  * @params {Object} opts.connection (Optional)
- * @params {Object} opts.joi_errors (Optional)
+ * @params {Object} opts.joi (Optional) -
+ *         Deep Extends the joi internal object
  *
  * @return {Promise}
  * @public

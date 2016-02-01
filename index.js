@@ -6,7 +6,8 @@
  * @private
  */
 const path = require('path'),
-  RequireAll = require('require-all')
+  RequireAll = require('require-all'),
+  extend = require('extend');
 
 
 /**
@@ -49,7 +50,8 @@ exports.createModel = opts => {
  *           - Logger Function(msg, context)
  *
  * @params {Object} opts.connection (Optional)
- * @params {Object} opts.joi_errors (Optional)
+ * @params {Object} opts.joi (Optional) -
+ *           Deep Extends the joi internal object
  *
  * @return {Promise}
  * @public
@@ -71,7 +73,7 @@ exports.connect = opts => {
       // Init Models
       require('./lib/models').initModels({
         logger: opts.logger,
-        joi_errors: opts.joi_errors,
+        joi: extend(true, {}, require('./lib/joi'), opts.joi),
         models: MODELS,
         db: db
       });
