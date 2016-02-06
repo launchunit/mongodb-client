@@ -48,10 +48,7 @@ mongoDB.loadModels(__dirname + '/models');
  * @params {Boolean|Function} opts.logger
  *           - Can be a Boolean (True = Default=console)
  *           - Logger Function(msg, context)
- *
  * @params {Object} opts.connection (Optional)
- * @params {Object} opts.joi (Optional) -
- *         Deep Extends the joi internal object
  *
  * @return {Promise}
  * @public
@@ -76,6 +73,5 @@ $ npm test
 ```
 
 #### To Do
-- [ ] Test joi validations
 - [ ] Test flat (nested) updates
 - [ ] Utils.deepDiff - Account for Removal of Item in Array
