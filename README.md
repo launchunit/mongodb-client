@@ -12,7 +12,7 @@ const mongoDB = require('mongodb-client');
  * @params {String} opts.name (Required)
  * @params {Array} opts.indexes (Optional)
  * @params {Object} opts.schema (Optional)
- * @params {Object} opts.actions (Optional)
+ * @params {Object} opts.methods (Optional)
  *
  * @public
  */

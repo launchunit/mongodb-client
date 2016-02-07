@@ -25,7 +25,7 @@ test.before(t => {
       created: Joi.date().min('now').default(new Date),
       email: Joi.string().lowercase().trim().email(),
     },
-    actions: {
+    methods: {
       abd: {
         created: Joi.date().min('now').default(new Date)
       },
