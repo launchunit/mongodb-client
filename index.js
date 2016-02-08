@@ -28,7 +28,7 @@ exports.loadModels = require('./lib/models').loadModels;
  *
  * @public
  */
-exports.initModels = require('./lib//models').initModels;
+exports.initModels = require('./lib/models').initModels;
 
 
 /**
