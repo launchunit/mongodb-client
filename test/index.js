@@ -10,9 +10,13 @@ opts = {
 };
 
 
-test.before(t => {
+test.serial(t => {
 
   client = require('../');
+  t.ok(client);
+  t.ok(client.createModel);
+  t.ok(client.loadModels);
+  t.ok(client.initModels);
 
   // Create a model
   client.createModel({

@@ -2,20 +2,6 @@
 'use strict';
 
 /**
- * Module dependencies.
- * @private
- */
-const path = require('path'),
-  RequireAll = require('require-all');
-
-/**
- * Constants
- * @private
- */
-const MODELS = {};
-
-
-/**
  * @params {String} opts.name (Required)
  * @params {Array} opts.indexes (Optional)
  * @params {Object} opts.schema (Optional)
@@ -23,21 +9,26 @@ const MODELS = {};
  *
  * @public
  */
-exports.createModel = opts => {
+exports.createModel = require('./lib/models').createModel;
 
-  if (! opts.name)
-    throw new Error('Model name is required.');
 
-  if (MODELS[opts.name])
-    throw new Error(`Model name ${opts.name} already exits.`);
+/**
+ * Load Models from a Path
+ *
+ * @params {String} modelsPath (Required)
+ *
+ * @public
+ */
+exports.loadModels = require('./lib/models').loadModels;
 
-  if (opts.name === 's' ||
-      opts.name === 'collection' ||
-      opts.name === 'db')
-    throw new Error(`Model name "${name}" is reserved, use something else.`);
 
-  MODELS[opts.name] = opts;
-};
+/**
+ * @params {Db Instance} opts.db (Required)
+ * @params {Object} opts.logger (Required)
+ *
+ * @public
+ */
+exports.initModels = require('./lib//models').initModels;
 
 
 /**
@@ -66,38 +57,17 @@ exports.connect = opts => {
       if (err) return reject(err);
 
       // Init Models
-      require('./lib/models').initModels({
+      exports.initModels({
         logger: opts.logger,
-        models: MODELS,
         db: db
       });
 
       return resolve({
         db: db,
-        collections: MODELS,
+        collections: require('./lib/models').MODELS,
         utils: require('./lib/utils')
       });
     });
 
-  });
-};
-
-
-/**
- * Load Models from a Path
- *
- * @params {String} modelsPath (Required)
- *
- * @public
- */
-exports.loadModels = modelsPath => {
-
-  return RequireAll({
-    dirname: path.resolve(modelsPath),
-    filter:  /(.+)\.js$/, // Only JS files
-    recursive: false,
-    resolve: function(m) {
-      return exports.createModel(m);
-    }
   });
 };
