@@ -1,6 +1,8 @@
 # mongodb-client
 Nodejs client for mongoDB
 
+__Note:__ Assumes [express-logger](https://github.com/launchunit/express-logger) is running.
+
 ----
 
 ## Usage
@@ -44,14 +46,10 @@ mongoDB.loadModels(__dirname + '/models');
 
 /**
  * @params {String} opts.mongoUrl (Required)
- *
- * @params {Boolean|Function} opts.logger
- *           - Can be a Boolean (True = Default=console)
- *           - Logger Function(msg, context)
+ * @params {Object} opts.debug (Required)
  * @params {Object} opts.connection (Optional)
  *
- * @return {Promise}
- * @public
+ * @private
  */
 // Once models have been created, Connect!
 mongoDB.connect({

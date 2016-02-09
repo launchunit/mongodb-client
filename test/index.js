@@ -2,11 +2,15 @@
 const Joi = require('joi'),
   test = require('ava');
 
+// Global Logger
+require('express-logger')({ level: 'debug' });
+
 
 // Init Things
 var client, DB,
 opts = {
-  mongoUrl: process.env.MONGO_URL
+  mongoUrl: process.env.MONGO_URL,
+  debug: false
 };
 
 

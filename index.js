@@ -33,10 +33,7 @@ exports.initModels = require('./lib/models').initModels;
 
 /**
  * @params {String} opts.mongoUrl (Required)
- *
- * @params {Boolean|Function} opts.logger
- *           - Can be a Boolean (True = Default=console)
- *           - Logger Function(msg, context)
+ * @params {Boolean} opts.debug (Optional, Default = true)
  * @params {Object} opts.connection (Optional)
  *
  * @return {Promise}
@@ -44,7 +41,10 @@ exports.initModels = require('./lib/models').initModels;
  */
 exports.connect = opts => {
 
-  opts = opts || {};
+  opts = Object.assign({
+    debug: true
+  }, opts);
+
 
   return new Promise((resolve, reject) => {
 
@@ -58,7 +58,6 @@ exports.connect = opts => {
 
       // Init Models
       exports.initModels({
-        logger: opts.logger,
         db: db
       });
 
