@@ -11,10 +11,10 @@
     "deep-diff": "^0.3.3",
     "extend": "^3.0.0",
     "flat": "^1.6.0",
+    "joi-helpers": "git@github.com:launchunit/joi-helpers.git",
     "lodash": "^4.0.0",
-    "mongodb": "^2.0.51",
-    "require-all": "^2.0.0",
-    "joi-helpers": "git@github.com:launchunit/joi-helpers.git"
+    "mongodb": "^2.1.7",
+    "require-all": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.7.0",
