@@ -1,7 +1,7 @@
 # mongodb-client
 Nodejs client for mongoDB
 
-__Note:__ Assumes [express-logger](https://github.com/launchunit/express-logger) is running.
+__Note:__ Assumes [logger](https://github.com/launchunit/logger) is running.
 
 ----
 

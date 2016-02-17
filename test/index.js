@@ -4,7 +4,7 @@ const Joi = require('joi'),
   test = require('ava');
 
 // Global Logger
-require('express-logger')({ level: 'info' });
+require('logger')({ level: 'info' });
 
 // Init Things
 var client;

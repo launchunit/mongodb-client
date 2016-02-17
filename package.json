@@ -19,6 +19,6 @@
   "devDependencies": {
     "ava": "^0.7.0",
     "joi": "^7.2.3",
-    "express-logger": "git@github.com:launchunit/express-logger.git"
+    "logger": "git@github.com:launchunit/logger.git"
   }
 }
