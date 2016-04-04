@@ -32,7 +32,7 @@ exports.initModels = require('./lib/models').initModels;
 
 
 /**
- * @params {String} opts.mongoUrl (Required)
+ * @params {String} opts.mongoUrl || process.env.MONGO_URL (Required)
  * @params {Boolean} opts.debug (Optional, Default = true)
  * @params {Object} opts.connection (Optional)
  *
@@ -44,6 +44,9 @@ exports.connect = opts => {
   opts = Object.assign({
     debug: true
   }, opts);
+
+  // Checking Env Var
+  opts.mongoUrl = opts.mongoUrl || process.env.MONGO_URL;
 
 
   return new Promise((resolve, reject) => {

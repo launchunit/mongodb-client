@@ -45,7 +45,7 @@ mongoDB.loadModels(__dirname + '/models');
 
 
 /**
- * @params {String} opts.mongoUrl (Required)
+ * @params {String} opts.mongoUrl || process.env.MONGO_URL (Required)
  * @params {Object} opts.debug (Required)
  * @params {Object} opts.connection (Optional)
  *
@@ -65,12 +65,9 @@ mongoDB.connect({
 ```
 
 
-
+#### Run Tests
 ```bash
 $ npm test
-
-# OR for continuous testing
-$ nodemon --exec "npm test"
 ```
 
 #### To Do

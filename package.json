@@ -5,20 +5,20 @@
   "author": "Karan Sakhuja <kevin.sakhuja@gmail.com> (http://kevify.com)",
   "main": "index.js",
   "scripts": {
-    "test": "ava test/index.js"
+    "test": "ava test/index.js -vws --source index.js"
   },
   "dependencies": {
     "deep-diff": "^0.3.3",
     "extend": "^3.0.0",
-    "flat": "^1.6.0",
+    "flat": "^2.0.0",
     "joi-helpers": "https://github.com/launchunit/joi-helpers.git",
-    "lodash": "^4.0.0",
-    "mongodb": "^2.1.7",
+    "lodash": "^4.7.0",
+    "mongodb": "^2.1.14",
     "require-all": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "^0.7.0",
-    "joi": "^7.2.3",
+    "ava": "^0.13.0",
+    "joi": "^8.0.5",
     "logger": "https://github.com/launchunit/logger.git"
   }
 }

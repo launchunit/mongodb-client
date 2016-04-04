@@ -2,7 +2,7 @@
 const test = require('ava');
 
 
-test.serial('Insert Data to User Collection, Index Requirement Not Met', t => {
+test('Insert Data to User Collection, Index Requirement Not Met', t => {
 
   const userData = {
     name: 'Karan'
@@ -18,7 +18,7 @@ test.serial('Insert Data to User Collection, Index Requirement Not Met', t => {
   });
 });
 
-test.serial('Insert Data to User Collection, Index Requirement Not Met', t => {
+test('Insert Data to User Collection, Index Requirement Not Met', t => {
 
   const userData = {
     name: 'Karan',
@@ -35,7 +35,7 @@ test.serial('Insert Data to User Collection, Index Requirement Not Met', t => {
   });
 });
 
-test.serial('Insert Data to User Collection', t => {
+test('Insert Data to User Collection', t => {
 
   const userData = {
     name: 'Karan',

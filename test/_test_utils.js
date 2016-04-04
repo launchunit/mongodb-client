@@ -1,6 +1,38 @@
 
-var Diff = require("deep-diff"),
-    _ = require('lodash');
+const Diff = require('deep-diff'),
+  _ = require('lodash');
+
+
+const user = {
+  email: 'abc@abc.com',
+  permissions: [
+    {
+      org_id: '1454520867652',
+      roles: ['admin']
+    },
+    {
+      org_id: '2342323234',
+      roles: ['admin']
+    },
+  ]
+};
+
+const update = {
+  permissions: [
+    {
+      org_id: '1454520867652',
+      roles: ['admin']
+    },
+    // {
+    //   org_id: '2342323234',
+    //   roles: ['admin']
+    // },
+    // {
+    //   org_id: '2342323234',
+    //   roles: ['admin']
+    // },
+  ]
+}
 
 /*
 var a = {
@@ -72,12 +104,11 @@ b = {
 };
 
 
-const diff = Diff.diff(a,b);
-// console.log('---- Diff ----');
+const diff = Diff.diff(user, update);
+console.log('---- Diff ----');
 // console.log(diff);
 
 prependPath = [];
-
 
 if (diff) {
 
